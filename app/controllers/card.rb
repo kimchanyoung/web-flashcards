@@ -14,5 +14,7 @@ post '/guesses' do
 
   round.guesses.create(card_id: @card, is_correct: @correct)
 
-  erb :'guess/show' #=> this will have a link to select next card
+  new_guess = round.guesses.last.id
+
+  redirect :'guesses/#{new_guess}'
 end
