@@ -2,8 +2,8 @@ class Card < ActiveRecord::Base
   belongs_to :deck
   has_many :guesses
 
-  def correct?(user_guess)
-    if term == user_guess
+  def correct?(input_guess)
+    if term == input_guess
       true
     else
       false
