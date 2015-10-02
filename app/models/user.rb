@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  include BCrypt
+
   has_many :rounds
 
   def password
