@@ -7,5 +7,6 @@ class Card < ActiveRecord::Base
       true
     else
       false
+    end
   end
 end
