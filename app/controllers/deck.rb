@@ -1,5 +1,5 @@
 get '/decks' do 
-	@decks = Deck.all
+  @decks = Deck.all
 	erb :'decks/index'
 end
 
