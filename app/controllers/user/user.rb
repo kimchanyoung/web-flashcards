@@ -3,7 +3,7 @@ get '/signup' do
   erb :'user/signup'
 end
 
-put '/signedin' do
+put '/registering' do
   @user = User.new(params[:user])
   @user.password = params[:password]
   if @user.save
