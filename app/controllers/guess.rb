@@ -3,7 +3,10 @@ get '/guesses/:guess_id' do |guess_id|
 
   @card = @guess.card
 
-  @next_card = (Deck.find(session[:deck_id]).cards - Round.find(session[:round_id]).done_cards).sample
+  deck = Deck.find(@card.deck_id)
+  round = Round.find(@guess.round_id)
+
+  @next_card = (deck.cards - round.done_cards).sample
 
   erb :'guess/show'
 end
@@ -14,11 +17,20 @@ post '/guesses' do
 
   @correct = @card.correct?(params[:guess])
 
-  round = Round.find(session[:round_id])
+  unless session[:user_id]
+    user = User.create(username: "guest", password: "guest", email: "guest@email.com") #=> need to delete the guest user from table at end of round.
 
-  round.guesses.create(card_id: @card.id, is_correct: @correct)
+    session[:user_id] = user.id
+
+    round = Round.create(user_id: user.id)
+  end
+
+  round = Round.create(user_id: session[:user_id])
+  # round = Round.find_by(user_id: session[:user_id])
+
+  round.guesses.create(card_id: @card.id, round_id: round.id, is_correct: @correct)
 
   new_guess = round.guesses.last.id
 
-  redirect :'guesses/#{new_guess}'
+  redirect :"guesses/#{new_guess}"
 end
