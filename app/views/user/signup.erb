@@ -1,0 +1,29 @@
+<h1> Welcome new flash card enthusiast! </h1>
+
+<%if @errors%>
+  <h4> We ran into some errors creating you account</h4>
+  <ul>
+  <%@errors.each do |message|%>
+    <li><%= message %></li>
+  <%end%>
+  </ul>
+<%end%>
+
+<form method="put" action = "/registering">
+  <label id = "username" type = "text">User Mame</label>
+  <input id = "username" name="user[username]" value = "<%= @user.username%>" placeholder = "Mandatory">
+
+  <label id = "first_name" type = "text">First Name</label>
+  <input id = "first_name" name="user[first_name]" value = "<%= @user.first_name%>" placeholder = "Optional">
+
+  <label id = "last_name" type = "text">Last Name</label>
+  <input id = "last_name" name="user[last_name]" value = "<%= @user.last_name%>" placeholder = "Optional">
+
+  <label id = "email" type = "text">Email</label>
+  <input id = "email" name="user[email]" value = "<%= @user.email%>" placeholder = "Mandatory">
+
+  <label id = "password" type = "password">Password</label>
+  <input id = "password" name="password" placeholder = "super secret!!!">
+
+  <input type = "submit" value = "sign up">
+</form>

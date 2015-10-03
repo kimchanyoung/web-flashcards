@@ -1,0 +1,20 @@
+<h1> Hello friend! Sign in here! </h1>
+
+<%if @errors%>
+  <h4> There was an error signing you in</h4>
+  <ul>
+  <%@errors.each do |message|%>
+    <li><%= message %></li>
+  <%end%>
+  </ul>
+<%end%>
+
+  <form method="put" action = "/login">
+    <label id = "email" type = "text">email</label>
+    <input id = "email" name="email" value = "<%= @user.email%>" placeholder = "jsmith123@example.com">
+
+    <label id = "password" type = "password">password</label>
+    <input id = "password" name="password" placeholder = "super secret">
+
+    <input type = "submit" value = "sign up">
+  </form>
