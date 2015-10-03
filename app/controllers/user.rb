@@ -41,6 +41,16 @@ get '/users/:user_id' do
   erb :'user/show'
 end
 
-get '/users/:user_id/decks/new' do
-  @user = User.find(params[:user_id])
+get 'decks/new' do
+  @user = User.find(session[:user_id])
+  erb :'deck/new'
+end
+
+post '/decks' do
+  @deck = Deck.new(params[:deck])
+  if @deck.save
+    redirect "/decks/#{@deck.id}/cards/new"
+  else
+    "not saved"
+  end
 end
