@@ -9,8 +9,8 @@
   </ul>
 <%end%>
 
-<form method="put" action = "/registering">
-  <label id = "username" type = "text">User Mame</label>
+<form method="get" action = "/registering">
+  <label id = "username" type = "text">User Name</label>
   <input id = "username" name="user[username]" value = "<%= @user.username%>" placeholder = "Mandatory">
 
   <label id = "first_name" type = "text">First Name</label>
