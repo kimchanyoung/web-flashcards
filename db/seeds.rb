@@ -5,3 +5,6 @@ Card.create!  term: 'jake', definition: 'who is the smartest?', deck_id: 66
 Card.create!  term: 'jake', definition: 'who is the has a great fashion sense?', deck_id: 66
 Card.create!  term: 'jake', definition: 'who is the worst at spelling?', deck_id: 66
 Card.create!  term: 'jake', definition: 'who do you love?', deck_id: 66
+
+
+User.create! username:" jaketheman", password_hash:" jaketheman", email:"jake@theman.com", first_name:" Jake", last_name: "Theman"
