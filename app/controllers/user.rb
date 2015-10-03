@@ -8,7 +8,7 @@ put '/registering' do
   @user.password = params[:password]
   if @user.save
     session[:user_id] = @user.id
-    redirect "/decks"
+    redirect "/users/#{@user.id}"
   else
     @errors = @user.errors.full_messages
     erb :'user/signup'
@@ -29,9 +29,13 @@ put '/login' do
   @user = User.find_by(email: params[:email])
   if @user.password == params[:password]
     session[:user_id] = @user.id
-    redirect "/decks"
+    redirect "/users/#{@user.id}s"
   else
     @errors = ["we didnt find a match check your email and password again"]
     erb :'user/signin'
   end
+end
+
+get '/users/:user_id' do
+  erb :'user/show'
 end
