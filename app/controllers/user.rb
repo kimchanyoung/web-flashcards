@@ -3,7 +3,7 @@ get '/signup' do
   erb :'user/signup'
 end
 
-get '/registering' do
+post '/registering' do
   @user = User.new(params[:user])
   @user.password = params[:password]
   if @user.save
@@ -25,7 +25,7 @@ get '/signin' do
   erb :'user/signin'
 end
 
-get '/login' do
+post '/login' do
   @user = User.find_by(email: params[:email])
   if @user.password == params[:password]
     session[:user_id] = @user.id
