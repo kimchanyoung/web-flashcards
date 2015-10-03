@@ -1,6 +1,6 @@
 get '/cards/:card_id' do
   @card = Card.find_by(params[:card_id])
-  erb :'cards/show'
+  erb :'card/show'
 end
 
 post '/guesses' do
