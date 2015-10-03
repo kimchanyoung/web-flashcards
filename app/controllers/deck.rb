@@ -15,7 +15,6 @@ end
 
 post '/decks' do
   @deck = Deck.new(params[:deck])
-  @deck.id = session[:deck][:id]
   if @deck.save
     redirect "/decks/#{@deck.id}/cards/new"
   else
