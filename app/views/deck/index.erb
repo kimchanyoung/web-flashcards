@@ -1,0 +1,9 @@
+<h2> Welcome to the BigAnimal Game Lobby!</h2>
+
+<h2> Take a look at our deck selection, and pick one that tickles your fancy. </h2>
+
+<ul>
+<% @decks.each do |deck| %>
+<a href = "<%= p deck.name %>"><%= p deck.name %></a>
+<%end%>
+</ul>
