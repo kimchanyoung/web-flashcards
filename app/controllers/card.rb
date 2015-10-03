@@ -18,3 +18,13 @@ post '/guesses' do
 
   redirect :'guesses/#{new_guess}'
 end
+
+get '/cards/random' do
+  # If the session will hold a deck
+  @card = (Deck.find(session[:deck_id]).cards - Round.find(session[:round_id]).done_cards).sample
+  # If the sessino only holds the round id
+  @card = (Round.find(session[:round_id]).guesses.first.card.deck.cards - Round.find(session[:round_id]).done_cards).sample
+  # PICK ONE!
+
+  @card == nil ? redirect "/rounds/#{session[:round_id]}" : redirect "/cards/#{@card.id}"
+end
