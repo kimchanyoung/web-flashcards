@@ -25,7 +25,7 @@ get '/signin' do
   erb :'user/signin'
 end
 
-put '/login' do
+get '/login' do
   @user = User.find_by(email: params[:email])
   if @user.password == params[:password]
     session[:user_id] = @user.id
