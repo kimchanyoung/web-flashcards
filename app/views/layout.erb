@@ -20,7 +20,7 @@
 <body>
   <div class = "user_display">
     <% if session[:user_id]%>
-      <p>hello <%= User.find(session[:user_id]).user_name %> | <a href="/signout">Signout</a></p>
+      <p>hello <a href="/users/<%= session[:user_id] %>"><%= User.find(session[:user_id]).username %></a> | <a href="/signout">Signout</a></p>
     <% else %>
       <p><a href="/signup">Create Account</a> | <a href="/signin">Sign in</a></p>
     <% end %>
