@@ -1,0 +1,24 @@
+<h2> Awesome, <%= @deck.name %> is now available. However it has no cards! </h2>
+
+<h2> On this page, we will create cards for the deck. <br> The definition is what you want to ask, for example: The sky is this color. <br> The term will be the answer, for example: Blue. Enter as many cards as you'd like, and when you're finished pressed the 'I'm done' button! </h2>
+
+<%if @errors%>
+  <h4> There was an error creating your card</h4>
+  <ul>
+  <%@errors.each do |message|%>
+    <li><%= message %></li>
+  <%end%>
+  </ul>
+<%end%>
+
+<form method = "post" action = '/decks/<%=@deck.id%>/cards'>
+<input type = "hidden" name = "deck_id" value = <%= @deck.id%>>
+<label id = "new_definition"> Definition: </label>
+<input type = "text" name = "cards[definition]" placeholder = "Definition">
+<label id = "new_term"> Definition: </label>
+<input type = "text" name = "cards[term]" placeholder = "Term/answer">
+<input type = "submit" name = "next_card" value = "Next Card" >
+
+<h2> Finished? </h2>
+<h2><a href = "<%= "/decks" %> "> View all decks </a>
+</form>
