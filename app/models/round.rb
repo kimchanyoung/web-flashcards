@@ -4,7 +4,6 @@ class Round < ActiveRecord::Base
   has_many :cards, through: :guesses
 
   def done_cards
-    # cards.where(id: guesses.pluck(:card_id))
-    guesses.map{|guess| guess.card}
+    guesses.where(is_correct: true).map { |guess| guess.card }
   end
 end
