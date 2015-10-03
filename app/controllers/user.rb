@@ -41,7 +41,7 @@ get '/users/:user_id' do
   erb :'user/show'
 end
 
-get 'decks/new' do
+get '/decks/new' do
   @user = User.find(session[:user_id])
   erb :'deck/new'
 end

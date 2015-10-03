@@ -11,8 +11,8 @@
   </ul>
 <%end%>
 
-<form action = "/decks" method = "post">
-<label for = "new_deck"> Deck Name: </label>
+<form method = "post" action = "/decks" >
+<label id = "deck"> Deck Name: </label>
   <input type = "text" name = "deck[name]" placeholder = "Deck name">
   <input type = "submit" value = "Create new deck">
 </form>
