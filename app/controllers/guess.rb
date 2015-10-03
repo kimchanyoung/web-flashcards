@@ -17,12 +17,16 @@ post '/guesses' do
 
   @correct = @card.correct?(params[:guess])
 
-  if session[:user_id]
-    round = Round.find_by(user_id: session[:user_id])
-  else
+  unless session[:user_id]
     user = User.create(username: "guest", password: "guest", email: "guest@email.com") #=> need to delete the guest user from table at end of round.
+
+    session[:user_id] = user.id
+
     round = Round.create(user_id: user.id)
   end
+
+  round = Round.create(user_id: session[:user_id])
+  # round = Round.find_by(user_id: session[:user_id])
 
   round.guesses.create(card_id: @card.id, round_id: round.id, is_correct: @correct)
 
