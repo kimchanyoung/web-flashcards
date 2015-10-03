@@ -19,6 +19,7 @@ post '/decks' do
   if @deck.save
     redirect "/decks/#{@deck.id}/cards/new"
   else
-    "not saved"
+    @errors = @deck.errors.full_messages
+    erb :'deck/new'
   end
 end
