@@ -1,0 +1,9 @@
+<h2>What is the term for this definition???</h2>
+<%= @card.definition%>
+
+<form method = "post" action = "/guesses">
+  <input type = "hidden" name = "card_id" value = <%= @card.id%>>
+  <label id = "guess " type = "text">Your Answer</label>
+  <input  id = "guess" name = "guess" placeholder = "you answer here">
+  <input type = "submit" value = "answer!!">
+</form>
