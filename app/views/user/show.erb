@@ -2,9 +2,10 @@
 <p>Hi <%=@user.first_name%>, here are your stats!</p>
 <% @user.rounds.each do |round| %>
   Deck played: <%= round.cards.first.deck.name %> on: <%= round.created_at %>
-  Number of first-time correct guesses: <%= round.guesses.where(is_correct:true).where.not(card_id: round.guesses.where(is_correct:false).pluck(:card_id)) %>
+  Number of first-time correct guesses: <%= round.first_shot %>
   Number of total guesses: <%= round.guesses.size %>
   Deck size: <%= round.cards.first.deck.cards.size %>
+  <!-- line7  breaks the law of demeter ^^^ -->
 <% end %>
 
 <a href="/decks">Check out the Decks</a>
