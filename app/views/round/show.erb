@@ -1,9 +1,19 @@
 <h2> You finished your round! Congrats! </h2>
 
 <h4> here are your stats</h4>
+<body>
 <ul>
   <li>you guessed <%= @round.first_shot %> card(s) on your first try our of a total of <%=@deck.cards.size%></li>
   <li>you had a total of <%= @round.guesses.size %> guesses</li>
 </ul>
+<%= content_tag :div, class:"stats", data: {first_successes: @round.first_shot, deck_size: @deck.cards.size, all_guesses: @round.guesses.size} do %>
+<% end %>
+
+<script type="text/javascript">
+  d3.select("ul")
+    .append("p")
+    .text('.stats').data('first_success');
+</script>
 
 <a href="/decks">back to decks</a>
+</body>
