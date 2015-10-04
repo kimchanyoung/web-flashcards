@@ -3,7 +3,7 @@
 <h4> here are your stats</h4>
 <ul>
   <li>You guessed <%= @round.first_shot %> card(s) correctly on your first try from a total of <%= @round.deck_size %></li>
-  <li>You had a total of <%= @round.guesses.size - 1 %> guesses</li>
+  <li>You had a total of <%= @round.guesses.size %> guesses</li>
   <!-- For some reason it has the total guesses as one more guess than you actually guessed-->
 </ul>
 
