@@ -1,15 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <!--
     normalize.css removes cross-browser differences in defaults, e.g.,
     differences in how form elements appear between Firefox and IE
     See: http://necolas.github.com/normalize.css/
   -->
-  <link rel="stylesheet" href="/css/normalize.css">
-  <!--
-    application.css is where you put your styles
-  -->
+  <!-- <link rel="stylesheet" href="/css/normalize.css"> -->
+
+
+  <!-- Bootstrap Stylesheet -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
   <link rel="stylesheet" href="/css/application.css">
 
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
@@ -18,19 +23,51 @@
   <title></title>
 </head>
 <body>
-  <div class = "user_display">
-    <% if session[:user_id]%>
-      <% if User.find(session[:user_id]).is_guest %>
-        <p>hello Guest | <a href="/signup">Create Account</a>
-      <% else %>
-        <p>hello <a href="/users/<%= session[:user_id] %>"><%= User.find(session[:user_id]).username %></a> | <a href="/signout">Signout</a></p>
-      <% end %>
-    <% else %>
-      <p><a href="/signup">Create Account</a> | <a href="/signin">Sign in</a></p>
-    <% end %>
-  </div>
-  <div class = master_container>
-    <%= yield %>
+  <nav class = "navbar navbar-inverse navbar-fixed-top">
+    <!-- ::before -->
+    <div class="container">
+      <!-- ::before -->
+      <div class="navbar-header">
+        <!-- ::before -->
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href ="/">Big Animal Flashcards</a>
+        <!-- ::after -->
+      </div>
+      <div id="navbar" class="collapse navbar-collapse">
+        <!-- ::before -->
+        <ul class="nav navbar-nav">
+          ::before
+          <% if session[:user_id]%>
+            <% if User.find(session[:user_id]).is_guest %>
+              <li>Hello Guest</li>
+              <li><a class="navbar-brand" href="/signup">Create Account</a></li>
+              <li><a href="/signin">Sign in</a></li>
+            <% else %>
+              <li><a href="/users/<%= session[:user_id] %>"><%= User.find(session[:user_id]).username %></a></li>
+              <li><a href="/signout">Signout</a></li>
+            <% end %>
+          <% else %>
+            <li><a href="/signup">Create Account</a></li>
+            <li><a href="/signin">Sign in</a></li>
+          <% end %>
+          ::after
+        </ul>
+        <!-- ::after -->
+      </div>
+      <!--/.nav-collapse-->
+      <!-- ::after -->
+    </div>
+    <!-- ::after -->
+  </nav>
+  <div class = "container">
+    <div class="starter-template"
+      <%= yield %>
+    </div>
   </div>
 </body>
 </html>
