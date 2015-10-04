@@ -13,7 +13,6 @@ class User < ActiveRecord::Base
     end
   end
 
-
   def password
     @password ||= Password.new(password_hash)
   end
