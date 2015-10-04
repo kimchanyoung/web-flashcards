@@ -15,6 +15,13 @@ class Round < ActiveRecord::Base
     first_shot.size
   end
 
+  def deck_size
+    card_id = guesses.first.card_id
+    card = Card.find(card_id)
+    deck = Deck.find(card.deck_id)
+    deck.cards.size
+  end
+
 end
 
 
