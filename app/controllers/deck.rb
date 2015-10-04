@@ -33,6 +33,7 @@ get '/decks/:deck_id' do
   session[:round_id] = new_round.id
   session[:deck_id] = params[:deck_id]
   erb :'deck/show'
+end
 
 get '/decks/:deck_id/cards/new' do
   @deck = Deck.find(params[:deck_id])
@@ -41,9 +42,10 @@ end
 
 post '/decks/:deck_id/cards' do
   @deck = Deck.find(params[:deck_id])
-  @card = Card.new(params[:cards])
+  @card = Card.new(params[:cards], params[:deck_id])
+  @card[:deck_id]= @deck.id
   if @card.save
-    rediredct "/decks/#{deck.id}/cards/new"
+    redirect "/decks/#{@deck.id}/cards/new"
   else
     @errors = @card.errors.full_messages
     erb :'card/new'
