@@ -3,10 +3,14 @@
 <h2> Take a look at our deck selection, and pick one that tickles your fancy. </h2>
 
 <ul>
-<% @decks.each do |deck| %>
-<li><a href = " <%= "/decks/#{deck.id} " %>" ><%= p deck.name %></a></li>
-<%end%>
+  <% @decks.each do |deck| %>
+  <li><a href = " <%= "/decks/#{deck.id} " %>" ><%= p deck.name %></a>
+    <a href = " <%= "/decks/#{deck.id}/edit " %>" >Edit deck</a>
+    <form method="post" action="/decks/<%= deck.id %>">
+      <input type="hidden" name="_method" value="delete">
+      <input type="submit" value="Delete"></form></li>
+    <%end%>
 </ul>
 
-<h2> Don't like the ones that you see here?
-<h2><a href = "<%= " /decks/new" %>"> Make my own deck! </a></h2>
+    <h2> Don't like the ones that you see here?
+      <h2><a href = "<%= " /decks/new" %>"> Make my own deck! </a></h2>
