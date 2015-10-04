@@ -1,6 +1,6 @@
 get '/guesses/:guess_id' do |guess_id|
   @guess = Guess.find(guess_id)
-
+  @user_attempt = params[:attempt]
   @card = @guess.card
 
   deck = Deck.find(@card.deck_id)
@@ -29,5 +29,5 @@ post '/guesses' do
 
   new_guess = round.guesses.last.id
 
-  redirect "guesses/#{new_guess}"
+  redirect "guesses/#{new_guess}?attempt=#{params[:guess]}"
 end
