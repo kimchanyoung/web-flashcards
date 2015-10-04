@@ -4,6 +4,8 @@ class Round < ActiveRecord::Base
   has_many :cards, through: :guesses
   has_many :decks, through: :cards
 
+  validates :user_id, presence: true
+
   def done_cards
     guesses.where(is_correct: true).map { |guess| guess.card }
   end
@@ -17,7 +19,3 @@ class Round < ActiveRecord::Base
   end
 
 end
-
-
-
-#<%= round.guesses.where(is_correct:true).where.not(card_id: round.guesses.where(is_correct:false).pluck(:card_id)) %>
