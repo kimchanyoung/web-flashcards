@@ -1,9 +1,29 @@
-<h2> You finished your round! Congrats! </h2>
+<div class="stats-container">
+  <h1> You finished your round! Congrats! </h1>
 
-<h4> here are your stats</h4>
-<ul>
-  <li>you guessed <%= @round.first_shot %> card(s) on your first try our of a total of <%=@deck.cards.size%></li>
-  <li>you had a total of <%= @round.guesses.size %> guesses</li>
-</ul>
+  <h3> Your game stats for this round:</h3>
+</div>
+<div class="row">
+  <div class="col-lg-6">
+    <div class="stats-box">
+      <h3>Correct Guesses</h3>
+      <p class="lead">You guessed:</p>
+      <div id="correct-box">
+        <h1 class="stats-guess"><%= @round.first_shot %>/<%=@deck.cards.size%></h1>
+      </div>
+      <p class="lead">On your first try!</p>
+    </div>
+  </div>
+  <div class="col-lg-6">
+    <div class="stats-box">
+      <h3>Total Guesses Made</h3>
+      <p class="lead">You made a total of:</p>
+      <div id="guesses-box">
+        <h1><%= @round.guesses.size %></h1>
+      </div>
+      <p class="lead">Guesses</p>
+    </div>
+  </div>
+</div>
 
-<a href="/decks">back to decks</a>
+<a class="btn btn-primary btn-lg" href="/decks" role="button">Back to Decks</a>
