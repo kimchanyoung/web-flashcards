@@ -30,7 +30,7 @@ get '/decks/:deck_id' do
   new_round = Round.create(user_id: session[:user_id])
 
   session[:round_id] = new_round.id
-
+  session[:deck_id] = params[:deck_id]
   erb :'deck/show'
 end
 
