@@ -1,8 +1,9 @@
 <h1> Welcome to the BigAnimal Game Lobby!</h1>
 
-<p class="lead"> Take a look at our deck selection, and pick one that tickles your fancy. </p>
+<p class="directions"> Take a look at our deck selection, and pick one that tickles your fancy. </p>
 
 <% @decks.each do |deck| %>
+
   <div class="card-deck">
       <div class="inner-border">
         <div class="card-content">
@@ -16,7 +17,6 @@
         </div>
       </div>
   </div>
-<%end%>
 
 <h2> Don't like the ones that you see here?
 <h2><a href = "<%= " /decks/new" %>"> Make my own deck! </a></h2>
