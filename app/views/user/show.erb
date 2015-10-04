@@ -1,10 +1,10 @@
 <h1>Stats for user <%=@user.username%></h1>
 <p>Hi <%=@user.first_name%>, here are your stats!</p>
 <% @user.rounds.each do |round| %>
-  Deck played: <%= round.cards.first.deck.name %> on: <%= round.created_at %>
+  Deck played: <%= round.decks.first.name %> on: <%= round.created_at %>
   Number of first-time correct guesses: <%= round.first_shot %>
   Number of total guesses: <%= round.guesses.size %>
-  Deck size: <%= round.cards.first.deck.cards.size %>
+  Deck size: <%= round.decks.first.cards.size %>
   <!-- line7  breaks the law of demeter ^^^ -->
 <% end %>
 
