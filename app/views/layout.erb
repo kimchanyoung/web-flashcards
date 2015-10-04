@@ -20,7 +20,11 @@
 <body>
   <div class = "user_display">
     <% if session[:user_id]%>
-      <p>hello <a href="/users/<%= session[:user_id] %>"><%= User.find(session[:user_id]).username %></a> | <a href="/signout">Signout</a></p>
+      <% if User.find(session[:user_id]).is_guest %>
+        <p>hello Guest | <a href="/signup">Create Account</a>
+      <% else %>
+        <p>hello <a href="/users/<%= session[:user_id] %>"><%= User.find(session[:user_id]).username %></a> | <a href="/signout">Signout</a></p>
+      <% end %>
     <% else %>
       <p><a href="/signup">Create Account</a> | <a href="/signin">Sign in</a></p>
     <% end %>
