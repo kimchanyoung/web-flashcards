@@ -26,17 +26,11 @@ end
 
 get '/decks/:deck_id' do
   @deck = Deck.find(params[:deck_id])
-
   unless session[:user_id]
     guest_account = "guest-" + SecureRandom.random_number(100).to_s
-    user = User.create(username: guest_account, password: "guest", email: "#{guest_account}@email.com", is_guest: true) #=> need to delete the guest user from table at end of round.
-
+    user = User.create(username: guest_account, password: "guest", email: "#{guest_account}@email.com", is_guest: true)
     session[:user_id] = user.id
   end
-
-  # new_round = Round.create(user_id: session[:user_id])
-
-  # session[:round_id] = new_round.id
   session[:deck_id] = params[:deck_id]
   erb :'deck/show'
 end
@@ -58,7 +52,7 @@ post '/decks/:deck_id/cards' do
   end
 end
 
-get '/decks/:deck_id' do 
+get '/decks/:deck_id' do
   @deck = Deck.find(params[:deck_id])
   erb :'deck/show'
 end
