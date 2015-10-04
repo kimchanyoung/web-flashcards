@@ -62,3 +62,22 @@ get '/decks/:deck_id' do
   @deck = Deck.find(params[:deck_id])
   erb :'deck/show'
 end
+
+
+get '/decks/:deck_id/edit' do
+  @deck = Deck.find(params[:deck_id])
+  erb :'deck/edit'
+end
+
+put '/decks/:deck_id' do
+  @deck = Deck.find(params[:deck_id])
+  @deck.update_attributes(params[:deck])
+  redirect "/decks/#{@deck.id}"
+end
+
+delete '/decks/:deck_id' do
+  @deck = Deck.find(params[:deck_id])
+  deck.destroy
+  redirect '/decks'
+end
+
