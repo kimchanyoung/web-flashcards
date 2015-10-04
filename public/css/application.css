@@ -1,9 +1,29 @@
-.master_container{
+/*.master_container{
   margin: auto;
   width:60%;
   background-color: #33CCFF;
-}
+}*/
 
 body {
     padding-top: 50px;
 }
+
+
+.container {
+  width: 1170px;;
+}
+
+
+.btn-deck {
+  background-color: #33CCFF;
+}
+
+.btn_deck a {
+  text-decoration: none;
+
+}
+
+a {
+  color: white;
+}
+
