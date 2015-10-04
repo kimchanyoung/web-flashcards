@@ -19,6 +19,7 @@
 <input type = "text" name = "cards[term]" placeholder = "Term/answer">
 <input type = "submit" name = "next_card" value = "Next Card" >
 
-<h2> Finished? </h2>
-<h2><a href = "<%= "/decks" %> "> View all decks </a>
+<h3> Finished? </h3>
+<h4><a href = "/decks/<%=@deck.id%>"> Save and view deck</a></h4>
+<h4><a href = "/decks"> Save deck and view all decks </a></h4>
 </form>
