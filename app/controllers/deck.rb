@@ -11,12 +11,13 @@ end
 post '/decks' do
   @deck = Deck.new(params[:deck])
   if @deck.save
-    redirect '/decks/#{@deck.id}/cards/new'
+    redirect "/decks/#{@deck.id}/cards/new"
   else
     @errors = @deck.errors.full_messages
     erb :'deck/new'
   end
 end
+
 
 get '/decks/:deck_id' do
   @deck = Deck.find(params[:deck_id])
@@ -34,3 +35,24 @@ get '/decks/:deck_id' do
   erb :'deck/show'
 end
 
+get '/decks/:deck_id/cards/new' do
+  @deck = Deck.find(params[:deck_id])
+  erb :'card/new'
+end
+
+post '/decks/:deck_id/cards' do
+  @deck = Deck.find(params[:deck_id])
+  @card = Card.new(params[:cards], params[:deck_id])
+  @card[:deck_id]= @deck.id
+  if @card.save
+    redirect "/decks/#{@deck.id}/cards/new"
+  else
+    @errors = @card.errors.full_messages
+    erb :'card/new'
+  end
+end
+
+get '/decks/:deck_id' do 
+  @deck = Deck.find(params[:deck_id])
+  erb :'deck/show'
+end
