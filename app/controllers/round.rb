@@ -2,7 +2,7 @@ get '/rounds' do
   "hi there"
 end
 
-get 'round/new' do
+get 'rounds/new' do
   new_round = Round.create(user_id: session[:user_id])
   session[:round_id] = new_round.id
   @deck = Deck.find(session[:deck_id])
