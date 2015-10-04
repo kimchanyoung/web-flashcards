@@ -29,5 +29,5 @@ post '/guesses' do
 
   new_guess = round.guesses.last.id
 
-  redirect :"guesses/#{new_guess}"
+  redirect "guesses/#{new_guess}"
 end
