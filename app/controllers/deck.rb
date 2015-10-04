@@ -42,7 +42,6 @@ end
 post '/decks/:deck_id/cards' do
   @deck = Deck.find(params[:deck_id])
   @card = Card.new(params[:cards])
-  @card.deck_id << @deck
   if @card.save
     rediredct "/decks/#{deck.id}/cards/new"
   else
