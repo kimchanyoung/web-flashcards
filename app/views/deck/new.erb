@@ -1,5 +1,5 @@
 <h2> Great, so you want to create your own deck! </h2>
-<h2> First, please enter the name of your new deck. </h2>
+<p class="lead"> First, please enter the name of your new deck. </p>
 
 
 <%if @errors%>
@@ -11,8 +11,11 @@
   </ul>
 <%end%>
 
-<form method = "post" action = "/decks" >
-<label id = "deck"> Deck Name: </label>
-  <input type = "text" name = "deck[name]" placeholder = "Deck name">
-  <input type = "submit" value = "Create new deck">
-</form>
+<div id="user-form">
+  <form id="form-content" method = "post" action = "/decks" >
+  <label id = "deck"></label><br>
+  <p id="label-username">Deck Name</p>
+    <input id = "username" type = "text" name = "deck[name]" placeholder = "Deck name"><br>
+    <input type = "submit" value = "Create new deck" class="btn btn-submit">
+  </form>
+</div>

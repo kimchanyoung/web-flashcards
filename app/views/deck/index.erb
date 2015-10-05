@@ -7,20 +7,24 @@
   <div class="card-deck">
       <div class="inner-border">
         <div class="card-content">
-          <h2><%= deck.name %></h2>
-          <a class="btn btn-play btn-lg" href ="<%= "/decks/#{deck.id}" %>" role="button"> Play! </a>
+          <h3><%= deck.name %></h3>
+          <a class="btn btn-play btn-lg" href ="/decks/<%= deck.id %>" role="button"> Play! </a>
 
-          <a class="btn btn-play btn-lg" href ="<%=  "/decks/#{deck.id}/edit" %>" role="button"> Edit Deck </a>
+          <a class="btn btn-edit" href ="/decks/<%= deck.id%>/edit" role="button"> Edit Deck </a>
           <form method="post" action="/decks/<%= deck.id %>">
             <input type="hidden" name="_method" value="delete">
-            <input type="submit" value="Delete">
+            <input type="submit" value="delete" class="btn btn-edit">
           </form>
         </div>
       </div>
   </div>
 <%end%>
 
-<h2> Don't like the ones that you see here?
-<h2><a href = "<%= " /decks/new" %>"> Make my own deck! </a></h2>
-
-
+<div class="card-deck">
+  <div class="inner-border">
+      <div class="card-content">
+          <h2> Don't like the ones that you see here?
+          <a class="btn btn-primary" href="/decks/new" role="button">Make my own deck! </a></h2>
+     </div>
+  </div>
+</div>
