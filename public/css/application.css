@@ -39,10 +39,12 @@ body {
   display: table-cell;
   vertical-align: middle;
   margin: 0 auto;
+  padding-right: 35px;
+  padding-left: 35px;
   height:250px;
 }
 
-.inner-border h2 {
+.inner-border h3 {
  /* padding-left: 15px;
   padding-right: 15px;*/
  /* padding-top: 30px;*/
@@ -54,6 +56,15 @@ body {
   font-weight: 200;
   margin-top: 15px;
   margin-bottom: 0;
+}
+
+.or {
+  position: relative;
+  display: inline;
+  font-size: 1.5em;
+  font-weight: 200;
+  top: 10px;
+  padding: 15px;
 }
 
 .btn-submit {
@@ -73,6 +84,57 @@ body {
 
 .btn-submit:active {
   color:white;
+}
+
+.btn-answer {
+  margin-top: -5px;
+  color:white;
+  border: 1.5px solid #019DD5;
+  background-color: #00AFE9;
+  box-shadow: inset 0 1.5px 1px rgba(255,255,255,0.5);
+
+}
+
+.btn-answer:hover {
+  color:white;
+  border-color: #019DD1;
+  background-color: #019DD1;
+}
+
+.btn-answer:active {
+  color:white;
+}
+
+.btn-next {
+  color:white;
+  border: 1.5px solid #088A08;
+  background-color: #04B431;
+  box-shadow: inset 0 1.5px 1px rgba(255,255,255,0.5);
+
+}
+
+.btn-next:hover {
+  color:white;
+  border-color: #21610B;
+  background-color: #21610B;
+}
+
+.btn-edit {
+  margin: 0 auto;
+  margin-bottom: 7.5px;
+  position: relative;
+  display: block;
+  width: 150px;
+  color: white;
+  border: 1.5px solid #019DD5;
+  background-color: #00AFE9;
+  box-shadow: inset 0 1.5px 1px rgba(255,255,255,0.5)
+
+}
+
+.btn-edit:hover {
+  border-color: #019DD1;
+  background-color: #019DD1;
 }
 
 a {
@@ -103,7 +165,14 @@ a {
 #guess {
   font-size: 1.25em;
   font-weight: 200;
+  margin-bottom: 15px;
 }
+
+#deck {
+  font-size: 1.25em;
+  font-weight: 200;
+}
+
 
 #user-form {
   color: #4C4C4C;
@@ -117,6 +186,12 @@ a {
 #form-content {
   width:90%;
   margin:0 auto
+}
+
+.finished {
+  width:90%;
+  margin:0 auto;
+  margin-top: 15px;
 }
 
 #username {
@@ -307,17 +382,24 @@ a {
   background-color: #019DD1;
 }
 
+
+
 .btn-play {
   margin: 0 auto;
+  margin-bottom: 7.5px;
   position: relative;
   display: block;
   width: 150px;
-  border: 1.5px solid #019DD5;
-  background-color: #00AFE9;
+  border: 1.5px solid #088A08;
+  background-color: #04B431;
   box-shadow: inset 0 1.5px 1px rgba(255,255,255,0.5);
 }
 
 .btn-play:hover {
-  border-color: #019DD1;
-  background-color: #019DD1;
+  border-color: #21610B;
+  background-color: #21610B;
+}
+
+.title {
+  margin-bottom: 15px;
 }
