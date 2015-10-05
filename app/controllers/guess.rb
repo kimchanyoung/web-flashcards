@@ -4,9 +4,9 @@ get '/guesses/:guess_id' do |guess_id|
   @card = @guess.card
 
   deck = Deck.find(@card.deck_id)
-  round = Round.find(session[:round_id])
+  @round = Round.find(session[:round_id])
 
-  available_cards = (deck.cards - round.done_cards)
+  available_cards = (deck.cards - @round.done_cards)
 
   if available_cards.empty?
     redirect "/rounds/#{round.id}"

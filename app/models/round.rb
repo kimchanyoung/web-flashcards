@@ -18,4 +18,9 @@ class Round < ActiveRecord::Base
     first_shot.size
   end
 
+  def misses
+    all_false_guesses = guesses.where(is_correct: false)
+    all_false_guesses.size
+  end
+
 end
