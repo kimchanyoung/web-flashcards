@@ -9,6 +9,7 @@
         <div class="card-content">
           <h2><%= deck.name %></h2>
           <a class="btn btn-play btn-lg" href ="<%= "/decks/#{deck.id}" %>" role="button"> Play! </a>
+
           <a class="btn btn-play btn-lg" href ="<%=  "/decks/#{deck.id}/edit" %>" role="button"> Edit Deck </a>
           <form method="post" action="/decks/<%= deck.id %>">
             <input type="hidden" name="_method" value="delete">
@@ -17,7 +18,9 @@
         </div>
       </div>
   </div>
+<%end%>
 
 <h2> Don't like the ones that you see here?
 <h2><a href = "<%= " /decks/new" %>"> Make my own deck! </a></h2>
+
 
