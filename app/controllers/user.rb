@@ -6,10 +6,13 @@ end
 post '/registering' do
   @user = User.new(params[:user])
   @user.password = params[:password]
-  if @user.save
+  if @user.save && !params[:password].empty?
     session[:user_id] = @user.id
     redirect "/users/#{@user.id}"
   else
+    if params[:password].empty?
+      @user.errors.add("password", message = "password field blank")
+    end
     @errors = @user.errors.full_messages
     erb :'user/signup'
   end
