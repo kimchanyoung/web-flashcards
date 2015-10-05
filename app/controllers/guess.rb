@@ -9,7 +9,7 @@ get '/guesses/:guess_id' do |guess_id|
   available_cards = (deck.cards - @round.done_cards)
 
   if available_cards.empty?
-    redirect "/rounds/#{round.id}"
+    redirect "/rounds/#{@round.id}"
   else
     @next_card = available_cards.sample
     erb :'guess/show'
