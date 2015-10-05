@@ -1,23 +1,19 @@
-<h2>Here is the answer</h2>
+<h2>Answer:</h2>
 <!-- I am assuming this erb will have an @card and a @guess passed into it. not sure yet about the user's attempt -->
 
-<h3>here is the card's definition:</h3>
-<p><%= @card.definition%></p>
-<h3>here is the card's term:</h3>
-<p><%= @card.term%></p>
-<h3>here is your answer:</h3>
-<p><%=@user_attempt%></p>
+<h3>Card's definition:</h3>
+<p class="lead"><%= @card.definition%></p>
+<h3>Card's term:</h3>
+<p class="lead"><%= @card.term%></p>
+<h3>You answered:</h3>
+<p class="lead"><%=@user_attempt%></p>
 
 
 <% if @guess.is_correct %>
-  <p>You were right!!</p>
+  <h4 class="correct">Congrats! You were right!!</h4>
 <% else %>
-  <p>Sorry... better luck next time!</p>
+  <h4 class="incorrect">Sorry... better luck next time!</h4>
 <% end %>
 
-<% if @round.misses > 0 %>
-  <%= "You have made #{@round.misses} mistake(s)"%>
-<% end %>
+<a class="btn btn-primary" href="/cards/<%= @next_card.id %>" role="button">Continue</a>
 
-<a class="btn btn-primary btn-lg" href="/cards/<%= @next_card.id %>" role="button">Continue</a>
-<!-- where does this go? we are fetching a new card form the deck so I calling the a NON RESTful route cause we are not making a new card and creating but doing are whole selecting logic not sure where this will end up going!!!! -->
