@@ -8,22 +8,24 @@
   <%end%>
   </ul>
 <%end%>
+<div id="user-form">
+  <form id="form-content" method="post" action = "/registering">
+    <p id="label-username">User Name</p>
+    <input id = "username" name="user[username]" value = "<%= @user.username%>" placeholder = "Mandatory"></br>
 
-<form method="post" action = "/registering">
-  <label id = "username" type = "text">User Name</label>
-  <input id = "username" name="user[username]" value = "<%= @user.username%>" placeholder = "Mandatory">
+    <p id="label-first">First Name</p>
+    <input id = "first_name" name="user[first_name]" value = "<%= @user.first_name%>" placeholder = "Optional"></br>
 
-  <label id = "first_name" type = "text">First Name</label>
-  <input id = "first_name" name="user[first_name]" value = "<%= @user.first_name%>" placeholder = "Optional">
+    <p id="label-last">Last Name</p>
+    <input id = "last_name" name="user[last_name]" value = "<%= @user.last_name%>" placeholder = "Optional"></br>
 
-  <label id = "last_name" type = "text">Last Name</label>
-  <input id = "last_name" name="user[last_name]" value = "<%= @user.last_name%>" placeholder = "Optional">
+    <p id="label-email2">Email</p>
+    <input id = "email" type="email" name="user[email]" value = "<%= @user.email%>" placeholder = "Mandatory"></br>
 
-  <label id = "email" type = "text">Email</label>
-  <input id = "email" name="user[email]" value = "<%= @user.email%>" placeholder = "Mandatory">
+    <p id="label-password2">Password</p>
+    <input id = "password" type="password" name="password" placeholder = "super secret!!!"></br>
 
-  <label id = "password" type = "password">Password</label>
-  <input id = "password" name="password" type="password" placeholder = "super secret!!!">
+    <input type = "submit" value = "Sign Up" class="btn-lg btn-submit">
+  </form>
+</div>
 
-  <input type = "submit" value = "sign up">
-</form>

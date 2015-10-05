@@ -71,7 +71,7 @@ end
 
 delete '/decks/:deck_id' do
   @deck = Deck.find(params[:deck_id])
-  deck.destroy
+  @deck.destroy
   redirect '/decks'
 end
 

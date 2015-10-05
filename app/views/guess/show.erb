@@ -19,5 +19,5 @@
   <%= "You have made #{@round.misses} mistake(s)"%>
 <% end %>
 
-<a href="/cards/<%= @next_card.id %>">Continue</a>
+<a class="btn btn-primary btn-lg" href="/cards/<%= @next_card.id %>" role="button">Continue</a>
 <!-- where does this go? we are fetching a new card form the deck so I calling the a NON RESTful route cause we are not making a new card and creating but doing are whole selecting logic not sure where this will end up going!!!! -->

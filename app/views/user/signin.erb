@@ -8,13 +8,15 @@
   <%end%>
   </ul>
 <%end%>
+  <div id="user-form">
+    <form id="form-content" method="post" action = "/login">
+      <p id="label-email">Email</p>
+      <input id = "email" name="email" value = "<%= @user.email%>" placeholder = "jsmith123@example.com"></br>
 
-  <form method="post" action = "/login">
-    <label id = "email" type = "text">email</label>
-    <input id = "email" name="email" value = "<%= @user.email%>" placeholder = "jsmith123@example.com">
+      <p id="label-password">Password</p>
+      <input id = "password" type="password" name="password" placeholder = "super secret"></br>
 
-    <label id = "password" type = "password">password</label>
-    <input id = "password" name="password" type="password" placeholder = "super secret">
+      <input type = "submit" value = "Sign In" class="btn-lg btn-submit">
+    </form>
+  </div>
 
-    <input type = "submit" value = "sign up">
-  </form>

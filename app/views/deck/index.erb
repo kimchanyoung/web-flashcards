@@ -1,16 +1,30 @@
-<h2> Welcome to the BigAnimal Game Lobby!</h2>
+<h1> Welcome to the BigAnimal Game Lobby!</h1>
 
-<h2> Take a look at our deck selection, and pick one that tickles your fancy. </h2>
+<p class="directions"> Take a look at our deck selection, and pick one that tickles your fancy. </p>
 
-<ul>
-  <% @decks.each do |deck| %>
-  <li><a href = " <%= "/decks/#{deck.id} " %>" ><%= p deck.name %></a>
-    <a href = " <%= "/decks/#{deck.id}/edit " %>" >Edit deck</a>
-    <form method="post" action="/decks/<%= deck.id %>">
-      <input type="hidden" name="_method" value="delete">
-      <input type="submit" value="Delete"></form></li>
-    <%end%>
-</ul>
+<% @decks.each do |deck| %>
 
-    <h2> Don't like the ones that you see here?
-      <h2><a href = "<%= " /decks/new" %>"> Make my own deck! </a></h2>
+  <div class="card-deck">
+      <div class="inner-border">
+        <div class="card-content">
+          <h3><%= deck.name %></h3>
+          <a class="btn btn-play btn-lg" href ="/decks/<%= deck.id %>" role="button"> Play! </a>
+
+          <a class="btn btn-edit" href ="/decks/<%= deck.id%>/edit" role="button"> Edit Deck </a>
+          <form method="post" action="/decks/<%= deck.id %>">
+            <input type="hidden" name="_method" value="delete">
+            <input type="submit" value="delete" class="btn btn-edit">
+          </form>
+        </div>
+      </div>
+  </div>
+<%end%>
+
+<div class="card-deck">
+  <div class="inner-border">
+      <div class="card-content">
+          <h2> Don't like the ones that you see here?
+          <a class="btn btn-primary" href="/decks/new" role="button">Make my own deck! </a></h2>
+     </div>
+  </div>
+</div>
