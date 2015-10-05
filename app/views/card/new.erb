@@ -1,6 +1,11 @@
 <h2> Awesome, <%= @deck.name %> is now available. Now, let's add some cards! </h2>
 
-<h2> On this page, we will create cards for the deck. <br> The definition is what you want to ask, for example: The sky is this color. <br> The term will be the answer, for example: Blue. Enter as many cards as you'd like, and when you're finished pressed the 'I'm done' button! </h2>
+<p class="lead"> On this page, we will create cards for the deck.</p>
+<ul class="lead">
+  <li>The definition is what you want to ask, for example: The sky is this color.</li>
+  <li>The term will be the answer, for example: blue</li>
+</ul>
+<p class="lead">Enter as many cards as you'd like, and when you're finished pressed the 'I'm done' button!</p>
 
 <%if @errors%>
   <h4> There was an error creating your card</h4>
@@ -10,16 +15,20 @@
   <%end%>
   </ul>
 <%end%>
-
-<form method = "post" action = '/decks/<%=@deck.id%>/cards'>
-<input type = "hidden" name = "deck_id" value = <%= @deck.id%>>
-<label id = "new_definition"> Definition: </label>
-<input type = "text" name = "cards[definition]" placeholder = "Definition">
-<label id = "new_term"> Term: </label>
-<input type = "text" name = "cards[term]" placeholder = "Term/answer">
-<input type = "submit" name = "next_card" value = "Next Card" >
-
-<h3> Finished? </h3>
-<h4><a href = "/decks/<%=@deck.id%>"> Save and view deck</a></h4>
-<h4><a href = "/decks"> Save deck and view all decks </a></h4>
-</form>
+<div id="user-form">
+  <form id="form-content" method = "post" action = '/decks/<%=@deck.id%>/cards'>
+  <h2 class="title">Enter the Definition and Term:</h2>
+  <input type = "hidden" name = "deck_id" value = <%= @deck.id%>>
+  <p id="label-username">Definition</p>
+  <input id = "guess" type = "text" name = "cards[definition]" placeholder = "Definition"><br>
+  <p id="label-username">Term</p>
+  <input id = "guess" type = "text" name = "cards[term]" placeholder = "Term/answer"><br>
+  <input type = "submit" name = "next_card" value = "Next Card" class="btn btn-next" >
+  </form>
+  <div class="finished">
+    <h3>Finished?</h3>
+    <a class="btn btn-primary" href="/decks/<%=@deck.id%>" role="button"> Save &amp; View Your Deck</a>
+    <p class="or">or</p>
+    <a class="btn btn-primary" href="/decks" role="button"> Save &amp; View All Decks </a>
+  </div>
+</div>

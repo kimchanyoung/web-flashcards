@@ -1,10 +1,12 @@
 <h2> Change deck name: </h2>
 
-
-<form method = "post" action = "/decks/<%= @deck.id %>">
-<input type = "hidden" name = "_method" value = "put">
- <input type = "hidden" name = "deck_id" value = <%= @deck.id%>>
-<label id = "deck"> Deck Name: </label>
-<input type = "text" name = "deck[name]" value = "<%= @deck.name %>" >
-<input type = "submit" value = "Update deck name">
-</form>
+<div id="user-form">
+  <form id="form-content" method = "post" action = "/decks/<%= @deck.id %>">
+  <input type = "hidden" name = "_method" value = "put">
+  <input type = "hidden" name = "deck_id" value = <%= @deck.id%>><br>
+  <label id = "deck"></label>
+  <p id="label-username">Deck Name</p>
+  <input id = "username" type = "text" name = "deck[name]" value = "<%= @deck.name %>"><br>
+  <input type = "submit" value = "Update deck name" class="btn btn-submit">
+  </form>
+</div>
