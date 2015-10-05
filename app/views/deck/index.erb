@@ -19,12 +19,31 @@
       </div>
   </div>
 <%end%>
-
-<div class="card-deck">
-  <div class="inner-border">
-      <div class="card-content">
-          <h2> Don't like the ones that you see here?
-          <a class="btn btn-primary" href="/decks/new" role="button">Make my own deck! </a></h2>
-     </div>
+<% if session[:user_id]%>
+  <div class="card-deck">
+    <div class="inner-border">
+        <div class="card-content">
+            <h2> Don't like the ones that you see here?</h2>
+            <a class="btn btn-primary" href="/decks/new" role="button">Make my own deck! </a>
+       </div>
+    </div>
   </div>
-</div>
+<% else %>
+  <div class="card-deck">
+    <div class="inner-border">
+        <div class="card-content">
+            <h3>Would you like to make a new deck?</h3>
+              <p class="directions"> Please
+              <a href="/signin">
+                <button type="button" class="btn btn-xs btn-info">Sign In</button>
+              </a>
+              or
+              <a href="/signup">
+                <button type="button" class="btn btn-xs btn-info">Register</button>
+              </a>
+              to create a new deck!</p>
+       </div>
+    </div>
+  </div>
+<% end %>
+
